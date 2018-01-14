@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 public class Notes {
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @OneToOne
