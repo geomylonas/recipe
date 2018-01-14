@@ -24,6 +24,9 @@ public class Recipe {
     private Byte[] image;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
+    @ManyToMany
+    @JoinTable(name = "Recipe_Category",joinColumns = @JoinColumn(name = "Recipe_ID"),inverseJoinColumns = @JoinColumn(name = "Cateogory_id"))
+    private Set<Category> categories;
 
     public Set<Ingredient> getIngredient() {
         return ingredient;
@@ -120,4 +123,14 @@ public class Recipe {
     public void setDifficulty(Difficulty difficulty) {
         this.difficulty = difficulty;
     }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
+
 }
