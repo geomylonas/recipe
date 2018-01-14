@@ -1,6 +1,7 @@
 package georgemylonas.recipe.domain;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Recipe {
@@ -15,12 +16,22 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
+    private Set<Ingredient> ingredient;
     //todo add
     //private Difficulty difficulty;
     @Lob
     private Byte[] image;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
+
+    public Set<Ingredient> getIngredient() {
+        return ingredient;
+    }
+
+    public void setIngredient(Set<Ingredient> ingredient) {
+        this.ingredient = ingredient;
+    }
 
     public Long getId() {
         return id;
