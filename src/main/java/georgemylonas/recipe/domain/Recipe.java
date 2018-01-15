@@ -1,6 +1,7 @@
 package georgemylonas.recipe.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Entity
@@ -15,9 +16,10 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    @Lob
     private String directions;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
-    private Set<Ingredient> ingredient;
+    private Set<Ingredient> ingredient=new HashSet<>();
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     @Lob
@@ -26,7 +28,10 @@ public class Recipe {
     private Notes notes;
     @ManyToMany
     @JoinTable(name = "Recipe_Category",joinColumns = @JoinColumn(name = "Recipe_ID"),inverseJoinColumns = @JoinColumn(name = "Cateogory_id"))
-    private Set<Category> categories;
+    private Set<Category> categories=new HashSet<>();
+
+    public Recipe() {
+    }
 
     public Set<Ingredient> getIngredient() {
         return ingredient;
