@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Slf4j
@@ -27,5 +28,14 @@ public class RecipeServiceImpl implements RecipeService {
         recipeRepository.findAll().iterator().forEachRemaining(recipes::add);
         //recipeRepository.findAll().forEach(recipes::add);
         return recipes;
+    }
+
+    @Override
+    public Recipe findById(Long l) {
+        Optional<Recipe> recipeOptional=recipeRepository.findById(l);
+        if(!recipeOptional.isPresent()){
+            throw new RuntimeException("Recipe not found");
+        }
+        return recipeOptional.get();
     }
 }
