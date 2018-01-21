@@ -130,15 +130,14 @@ public class RecipeBootStrap implements ApplicationListener<ContextRefreshedEven
         guacRecipe.addIngredient(new Ingredient("freshly grated black pepper", new BigDecimal(2),dashUom));
         guacRecipe.addIngredient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(".5"), eachUom));
 
-        //guacRecipe.getCategories().add(americanCategory);
-        //guacRecipe.getCategories().add(mexicanCategory);
-        //americanCategory.getRecipes().add(guacRecipe);
-        //mexicanCategory.getRecipes().add(guacRecipe);
+
         guacRecipe.addCategory(americanCategory);
         guacRecipe.addCategory(mexicanCategory);
         categoryRepository.save(americanCategory);
         categoryRepository.save(mexicanCategory);
-
+        guacRecipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/");
+        guacRecipe.setServings(4);
+        guacRecipe.setSource("Simply Recipes");
         recipes.add(guacRecipe);
 
         //Yummy Tacos
