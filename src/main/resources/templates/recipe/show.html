@@ -89,7 +89,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <ul>
-                                    <li th:each="ingredient:${recipe.getIngredient()}" th:text="${ingredient.getAmount()}+' '+${ingredient.getUom().getDescription()}+' - '+${ingredient.getDescription()}">1 Cup of milk</li>
+                                    <li th:each="ingredients:${recipe.getIngredients()}" th:text="${ingredients.getAmount()}+' '+${ingredients.getUom().getDescription()}+' - '+${ingredients.getDescription()}">1 Cup of milk</li>
                                 </ul>
                             </div>
                         </div>

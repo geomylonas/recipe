@@ -22,7 +22,7 @@ public class Recipe {
     @Lob
     private String directions;
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
-    private Set<Ingredient> ingredient=new HashSet<>();
+    private Set<Ingredient> ingredients =new HashSet<>();
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
     @Lob
@@ -37,13 +37,16 @@ public class Recipe {
     }
 
     public void setNotes(Notes notes) {
+        if(notes!=null){
         notes.setRecipe(this);
         this.notes = notes;
+        }
+
     }
 
     public void addIngredient(Ingredient ingredient){
         ingredient.setRecipe(this);
-        this.getIngredient().add(ingredient);
+        this.getIngredients().add(ingredient);
     }
 
     public void addCategory(Category category){
