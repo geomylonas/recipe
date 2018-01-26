@@ -2,6 +2,7 @@ package georgemylonas.recipe.Services;
 
 import georgemylonas.recipe.Repositories.RecipeRepository;
 import georgemylonas.recipe.commands.RecipeCommand;
+import georgemylonas.recipe.domain.Ingredient;
 import georgemylonas.recipe.domain.Recipe;
 
 import java.util.Set;

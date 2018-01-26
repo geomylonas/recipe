@@ -4,6 +4,7 @@ import georgemylonas.recipe.Repositories.RecipeRepository;
 import georgemylonas.recipe.commands.RecipeCommand;
 import georgemylonas.recipe.converters.RecipeCommandToRecipe;
 import georgemylonas.recipe.converters.RecipeToRecipeCommand;
+import georgemylonas.recipe.domain.Ingredient;
 import georgemylonas.recipe.domain.Recipe;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
